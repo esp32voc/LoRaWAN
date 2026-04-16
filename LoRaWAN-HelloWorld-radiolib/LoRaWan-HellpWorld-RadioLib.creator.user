@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 19.0.0, 2026-04-14T13:58:48. -->
+<!-- Written by QtCreator 19.0.0, 2026-04-15T12:19:40. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -85,6 +85,28 @@
     <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
     <value type="bool" key="ClangTools.UseGlobalSettings">true</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ClangdSettings">
+    <value type="int" key="ClangdCompletionRankingModel">0</value>
+    <value type="int" key="ClangdDocumentThreshold">500</value>
+    <value type="bool" key="ClangdHeaderInsertion">false</value>
+    <value type="int" key="ClangdHeaderSourceSwitchMode">2</value>
+    <value type="bool" key="ClangdIndexing">true</value>
+    <value type="int" key="ClangdIndexingPriority">3</value>
+    <value type="UnknownType" key="ClangdPath"></value>
+    <value type="QString" key="ClangdProjectIndexPath">%{BuildConfig:BuildDirectory:FilePath}/.qtc_clangd</value>
+    <value type="QString" key="ClangdSessionIndexPath">%{IDE:UserResourcePath}/.qtc_clangd/%{Session:FileBaseName}</value>
+    <value type="qlonglong" key="ClangdSizeThreshold">1024</value>
+    <value type="bool" key="ClangdSizeThresholdEnabled">false</value>
+    <value type="int" key="ClangdThreadLimit">0</value>
+    <valuelist type="QVariantList" key="SessionsWithOneClangd"/>
+    <value type="bool" key="UseClangdV7">false</value>
+    <value type="bool" key="blockIndexing">false</value>
+    <value type="bool" key="checkedHardware">false</value>
+    <value type="int" key="completionResults">100</value>
+    <value type="QString" key="diagnosticConfigId">Builtin.BuildSystem</value>
+    <value type="bool" key="updateDependentSources">false</value>
+    <value type="bool" key="useGlobalSettings">false</value>
    </valuemap>
    <valuemap type="QVariantMap" key="CppcheckManual"/>
    <value type="int" key="RcSync">0</value>
