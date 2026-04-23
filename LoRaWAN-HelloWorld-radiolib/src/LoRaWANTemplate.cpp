@@ -61,7 +61,7 @@ void print_wakeup_reason() {
     Serial.println(++bootCount); // increment before printing
 }
 
-void gotoSleep(uint32_t seconds) {
+void goToSleep(uint32_t seconds) {
     loRaWAN.goToSleep();
     gps.goToSleep();
 

@@ -3,7 +3,7 @@
 // ##### load the ESP32 preferences facilites
 #include <Preferences.h>
 
-void gotoSleep(uint32_t seconds);
+void goToSleep(uint32_t seconds);
 
 namespace GAIT {
 
@@ -118,7 +118,7 @@ namespace GAIT {
                 Serial.print(sleepForSeconds);
                 Serial.println(F(" seconds"));
 
-                gotoSleep(sleepForSeconds);
+                ::goToSleep(sleepForSeconds);
             }
         } // while join
 
@@ -166,7 +166,7 @@ namespace GAIT {
                 memcpy(session, persist, RADIOLIB_LORAWAN_SESSION_BUF_SIZE);
 
                 // wait until next uplink - observing legal & TTN FUP constraints
-                gotoSleep(RADIOLIB_LORA_UPLINK_INTERVAL_SECONDS);
+                ::goToSleep(RADIOLIB_LORA_UPLINK_INTERVAL_SECONDS);
             }
         }
     }
@@ -191,14 +191,8 @@ namespace GAIT {
         int16_t state = 0;
         if (downlinkDetails.frmPending || downlinkDetails.confirmed) { // At first run this is false due to initialization
             Serial.println(F("[LoRaWAN] Sending request for pending frame"));
-            state = node.sendReceive(reinterpret_cast<const uint8_t*>(""), // cppcheck-suppress cstyleCast
-                                     0,
-                                     220,
-                                     downlinkPayload,
-                                     &downlinkSize,
-                                     false,
-                                     &uplinkDetails,
-                                     &downlinkDetails);
+            state = node.sendReceive(
+                reinterpret_cast<const uint8_t*>(""), 0, 220, downlinkPayload, &downlinkSize, false, &uplinkDetails, &downlinkDetails);
         } else {
             Serial.print(F("[LoRaWAN] Sending: "));
             Serial.print(F("fPort = "));
@@ -213,7 +207,7 @@ namespace GAIT {
                 node.sendMacCommandReq(RADIOLIB_LORAWAN_MAC_DEVICE_TIME);
             }
 
-            state = node.sendReceive(reinterpret_cast<const uint8_t*>(uplinkPayload.c_str()), // cppcheck-suppress cstyleCast
+            state = node.sendReceive(reinterpret_cast<const uint8_t*>(uplinkPayload.c_str()),
                                      uplinkPayload.length(),
                                      fPort,
                                      downlinkPayload,
@@ -300,7 +294,7 @@ namespace GAIT {
             memcpy(session, persist, RADIOLIB_LORAWAN_SESSION_BUF_SIZE);
 
             // wait until next uplink - observing legal & TTN FUP constraints
-            gotoSleep(RADIOLIB_LORA_UPLINK_INTERVAL_SECONDS);
+            ::goToSleep(RADIOLIB_LORA_UPLINK_INTERVAL_SECONDS);
         }
     }
 
